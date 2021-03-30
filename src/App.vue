@@ -17,6 +17,14 @@
           <div>
             <input type="text" v-bind:value="name" />
           </div>
+          <p>{{resultadoContador}}</p>
+          <input
+          type="text"
+          v-model="contador">
+          <input
+          type="text"
+          v-model="contador2">
+          <button type="button" v-on:click="somar(contador, contador2)">Soma contador</button>
         </div>
       </div>
     </div>
@@ -30,6 +38,9 @@ export default {
       name: "Henrique Sombrio",
       message: "hello word",
       linkMsg: "",
+      contador: 0,
+      contador2: 0,
+      resultadoContador: 0
     };
   },
   methods: {
@@ -39,6 +50,9 @@ export default {
     numberRandom: function () {
       return Math.random();
     },
+    somar(cont1, cont2){
+      this.resultadoContador = parseInt(cont1) + parseInt(cont2);
+    }
   },
 };
 </script>
