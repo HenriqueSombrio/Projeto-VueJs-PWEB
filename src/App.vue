@@ -3,6 +3,7 @@
     <div class="container">
       <div class="row">
         <div class="col-12">
+          <h1 v-on:mousemove="atualizaXY">Posição X: {{x}} <br>Posição Y: {{y}}</h1>
           <p>Usando vuejs - Seu nome {{ name }}</p>
           <p>Idade multuplicada por 3 = {{ minhaIdade(24) }}</p>
           <p>Teste: {{ numberRandom(2) }}</p>
@@ -40,7 +41,9 @@ export default {
       linkMsg: "",
       contador: 0,
       contador2: 0,
-      resultadoContador: 0
+      resultadoContador: 0,
+      x: 0,
+      y: 0
     };
   },
   methods: {
@@ -52,6 +55,10 @@ export default {
     },
     somar(cont1, cont2){
       this.resultadoContador = parseInt(cont1) + parseInt(cont2);
+    },
+    atualizaXY(e){
+      this.x = e.clientX;
+      this.y = e.clientY;
     }
   },
 };
