@@ -26,6 +26,21 @@
           type="text"
           v-model="contador2">
           <button type="button" v-on:click="somar(contador, contador2)">Soma contador</button>
+          <input type="text" v-on:keyup="tecla($event)">
+          <input type="text" v-on:keyup.enter="enter">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div>
+            <button type="button" v-on:click="alertaExercicio">Exibir alerta</button>
+          </div>
+          <div>
+            <input type="text" v-on:keydown="chamaPropData($event)">
+            <input type="text" v-on:keydown.enter="chamaPropData($event)">
+            <p>{{valor}}</p>
+            <p>Valor enter: {{valor}}</p>
+          </div>
         </div>
       </div>
     </div>
@@ -43,7 +58,8 @@ export default {
       contador2: 0,
       resultadoContador: 0,
       x: 0,
-      y: 0
+      y: 0,
+      valor: ''
     };
   },
   methods: {
@@ -59,6 +75,21 @@ export default {
     atualizaXY(e){
       this.x = e.clientX;
       this.y = e.clientY;
+    },
+    tecla(e) {
+      alert(`Pressionou a tecla ${e.key}`)
+    },
+    enter(){
+      alert('Pressionou enter')
+    },
+    alertaExercicio(){
+      alert('Exibindo alerta!')
+    },
+    chamaPropData(e){
+      this.valor = e.target.value;
+    },
+    atualizaValorEnter(e){
+      this.valor = e.target.value;
     }
   },
 };
