@@ -1,50 +1,78 @@
 <template>
-  <h1>Calculo IMC</h1>
-  <div>
-    <form action="">
-      <div>
-        <label for="">Altura</label>
-        <input type="text" v-model="altura"/>
-        <p>{{altura}}</p>
-        <label for="">Peso</label>
-        <input type="tel" v-model="peso"/>
-        <p>{{peso}}</p>
-        <button type="button" v-on:click="calculaImc(altura, peso)">Calcular</button>
-      </div>
-    </form>
-  </div>
-  <div>
-    <h2>Resultado: {{resultado}}</h2>
-    <p>{{message}}</p>
+  <div id="app">
+    <h1>Registrar Reclamação</h1>
+    <div class="conteudo">
+      <form class="painel">
+        <div class="cabecalho">Formulário</div>
+        <rotulo nome="E-mail">
+          <input type="text" />
+        </rotulo>
+      </form>
+    </div>
   </div>
 </template>
 
 <script>
+import rotulo from "./components/rotulo.vue";
 export default {
-  data: function () {
-    return {
-      resultado: 0,
-      altura: 0,
-      peso: 0,
-      message: ''
-    };
-  },
-  methods: {
-    calculaImc(altura, peso) {
-      let result = this.resultado
-      result = (peso/(altura*altura));
-      if(result < 18.5){
-        this.message = 'Você está abaixo do peso!'
-      } else if (result >= 18.5 && result <= 24.8) {
-        this.message = 'Você está no peso ideal!'
-      }else if (result > 24.8) {
-        this.message = 'Você está acima do peso!'
-      }
-      return this.resultado = result.toFixed(1);
-    }
-  }
+  components: { rotulo },
 };
 </script>
 
 <style>
+body {
+  background-color: #ececec;
+}
+
+#app {
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.conteudo {
+  display: flex;
+}
+
+.painel {
+  flex: 1;
+  background: #fff;
+  margin: 0px 10px;
+  padding: 20px;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+}
+
+.painel .cabecalho {
+  width: 100%;
+  background-color: #ddd;
+  padding: 10px 0px;
+  border-radius: 5px;
+  font-size: 1.4rem;
+}
+
+#app form button {
+  float: right;
+  margin: 10px 0px;
+  padding: 10px 20px;
+  font-size: 1.4rem;
+  border-radius: 5px;
+  color: #fff;
+  background-color: #2196f3;
+}
+
+#app h1 {
+  font-weight: 200;
+  margin: 20px;
+  padding: 0;
+}
+
+.mr-4 {
+  margin-right: 40px;
+}
 </style>
