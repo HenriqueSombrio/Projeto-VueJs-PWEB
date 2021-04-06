@@ -4,18 +4,95 @@
     <div class="conteudo">
       <form class="painel">
         <div class="cabecalho">Formulário</div>
+
         <rotulo nome="E-mail">
           <input type="text" />
         </rotulo>
+
+        <rotulo nome="Senha">
+          <input type="password" />
+        </rotulo>
+
+        <rotulo nome="Idade">
+          <input type="number" />
+        </rotulo>
+
+        <rotulo nome="Mensagem">
+          <textarea name="" cols="30" rows="5"></textarea>
+        </rotulo>
+
+        <rotulo nome="Características do Problema">
+          <span class="mr-4"
+            ><input type="checkbox" value="reproduzivel" /> Reproduzível</span
+          >
+          <span
+            ><input type="checkbox" value="intermitente" /> Intermitente</span
+          >
+        </rotulo>
+
+        <rotulo nome="Qual produto?">
+          <span class="mr-4"><input type="radio" /> Web</span>
+          <span class="mr-4"><input type="radio" /> Mobile</span>
+          <span><input type="radio" /> Outro</span>
+        </rotulo>
+
+        <rotulo nome="Prioridade">
+          <select name="" id="">
+            <option></option>
+          </select>
+        </rotulo>
+
+        <rotulo nome="Primeira Reclamação?">
+          <escolha />
+        </rotulo>
+        <hr />
+        <button>Enviar</button>
       </form>
+
+      <div class="painel">
+        <div class="cabecalho">Resultado</div>
+
+        <rotulo nome="E-mail">
+          <span></span>
+        </rotulo>
+
+        <rotulo nome="Senha">
+          <span></span>
+        </rotulo>
+
+        <rotulo nome="Idade">
+          <span></span>
+        </rotulo>
+
+        <rotulo nome="Mensagem">
+          <span>???</span>
+        </rotulo>
+
+        <rotulo nome="Marque as Opções">
+          <span>???</span>
+        </rotulo>
+
+        <rotulo nome="Qual produto?">
+          <span>???</span>
+        </rotulo>
+
+        <rotulo nome="Prioridade">
+          <span>???</span>
+        </rotulo>
+
+        <rotulo nome="Primeira Reclamação?">
+          <span>???</span>
+        </rotulo>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import escolha from "./components/escolha.vue";
 import rotulo from "./components/rotulo.vue";
 export default {
-  components: { rotulo },
+  components: { rotulo, escolha },
 };
 </script>
 
