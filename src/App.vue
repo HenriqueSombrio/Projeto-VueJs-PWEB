@@ -1,10 +1,21 @@
 <template>
-  <div style="height: 30px; width: 500px; border: 1px solid black">
-    <div :style="meuEstilo" />
-    <div>
-      <h1>{{contador}}</h1>
-      <button type="button" v-on:click=inicia>Iniciar</button>
-    </div>
+  <h1>Calculo IMC</h1>
+  <div>
+    <form action="">
+      <div>
+        <label for="">Altura</label>
+        <input type="text" v-model="altura"/>
+        <p>{{altura}}</p>
+        <label for="">Peso</label>
+        <input type="tel" v-model="peso"/>
+        <p>{{peso}}</p>
+        <button type="button" v-on:click="calculaImc(altura, peso)">Calcular</button>
+      </div>
+    </form>
+  </div>
+  <div>
+    <h2>Resultado: {{resultado}}</h2>
+    <p>{{message}}</p>
   </div>
 </template>
 
@@ -12,33 +23,24 @@
 export default {
   data: function () {
     return {
-      contador: 0,
-      cor: 'red',
-      altura: 100,
-      largura: 10
+      resultado: 0,
+      altura: 0,
+      peso: 0,
+      message: ''
     };
   },
-  watch: {
-    contador() {
-      setTimeout(() => {
-        if(this.contador < 100){
-          this.contador++;
-        }
-      }, 1000);
-    },
-  },
-  methods:{
-    inicia(){
-      this.contador ++;
-    }
-  },
-  computed: {
-    meuEstilo(){
-      return{
-        backgroundColor: this.cor,
-        width: this.contador + '%',
-        height: this.altura + '%'
+  methods: {
+    calculaImc(altura, peso) {
+      let result = this.resultado
+      result = (peso/(altura*altura));
+      if(result < 18.5){
+        this.message = 'Você está abaixo do peso!'
+      } else if (result >= 18.5 && result <= 24.8) {
+        this.message = 'Você está no peso ideal!'
+      }else if (result > 24.8) {
+        this.message = 'Você está acima do peso!'
       }
+      return this.resultado = result.toFixed(1);
     }
   }
 };
