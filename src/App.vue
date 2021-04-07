@@ -6,19 +6,19 @@
         <div class="cabecalho">Formulário</div>
 
         <rotulo nome="E-mail">
-          <input type="text" />
+          <input type="text" v-model.lazy="usuario.email" />
         </rotulo>
 
         <rotulo nome="Senha">
-          <input type="password" />
+          <input type="password" v-model="usuario.senha" />
         </rotulo>
 
         <rotulo nome="Idade">
-          <input type="number" />
+          <input type="number" v-model.number="usuario.idade"/>
         </rotulo>
 
         <rotulo nome="Mensagem">
-          <textarea name="" cols="30" rows="5"></textarea>
+          <textarea name="" v-model="mensagem" cols="30" rows="5"></textarea>
         </rotulo>
 
         <rotulo nome="Características do Problema">
@@ -53,19 +53,19 @@
         <div class="cabecalho">Resultado</div>
 
         <rotulo nome="E-mail">
-          <span></span>
+          <span>{{usuario.email}}</span>
         </rotulo>
 
         <rotulo nome="Senha">
-          <span></span>
+          <span>{{usuario.senha}}</span>
         </rotulo>
 
         <rotulo nome="Idade">
-          <span></span>
+          <span>{{usuario.idade}}</span>
         </rotulo>
 
         <rotulo nome="Mensagem">
-          <span>???</span>
+          <span style="white-space: pre">{{mensagem}}</span>
         </rotulo>
 
         <rotulo nome="Marque as Opções">
@@ -93,6 +93,17 @@ import escolha from "./components/escolha.vue";
 import rotulo from "./components/rotulo.vue";
 export default {
   components: { rotulo, escolha },
+
+  data() {
+    return {
+      mensagem: '',
+      usuario: {
+        email: '',
+        senha: '',
+        idade: 25,
+      },
+    };
+  },
 };
 </script>
 
