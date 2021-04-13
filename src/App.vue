@@ -61,9 +61,8 @@
           </select>
         </rotulo>
 
-        <rotulo nome="Primeira Reclamação?">
-          <escolha v-model="primeira"/>
-        </rotulo>
+        <meu-toogle v-model:checked="primeira" label="Primeira Reclamação?" />
+
         <hr />
         <button type="button" @click.prevent="enviar">Enviar</button>
       </form>
@@ -104,17 +103,17 @@
       </rotulo>
 
       <rotulo nome="Primeira Reclamação?">
-        <span>???</span>
+        <span>{{ primeira }}</span>
       </rotulo>
     </div>
   </div>
 </template>
 
 <script>
-import escolha from "./components/escolha";
+import MeuToogle from './components/MeuToogle.vue';
 import rotulo from "./components/rotulo";
 export default {
-  components: { rotulo, escolha },
+  components: { rotulo, MeuToogle },
 
   data() {
     return {
