@@ -2,9 +2,10 @@
   <div id="app">
       <div>
           <router-link to="/" active-class="active">Home</router-link> |
-          <router-link to="/sobre" active-class="active">Sobre</router-link> |
-          <router-link to="/reclamacao" active-class="active">Registrar Reclamação</router-link>
+          <router-link to="/reclamacao" active-class="active">Registrar Reclamação</router-link> |
+          <router-link to="/sobre" active-class="active">Sobre</router-link>
       </div>
+      <button @click="goHome">Ir para home</button>
       <hr>
       <div>
           <router-view></router-view>
@@ -13,7 +14,13 @@
 </template>
 
 <script>
-export default {};
+export default {
+    methods:{
+        goHome(){
+            this.$router.push('/')
+        }
+    }
+};
 </script>
 
 <style>
