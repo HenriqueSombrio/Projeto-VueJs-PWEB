@@ -2,6 +2,7 @@ import { createWebHistory, createRouter } from "vue-router";
 import Home from "../pages/Home.vue";
 import Sobre from "../pages/Sobre.vue";
 import Reclamacao from "../pages/Reclamacao.vue";
+import ViaCep from "../pages/ViaCep.vue";
 
 const routes = [
   {
@@ -18,6 +19,11 @@ const routes = [
     path: "/reclamacao",
     name: "Reclamacao",
     component: Reclamacao,
+  },
+  {
+    path: "/via-cep",
+    name: "ViaCep",
+    component: ViaCep,
   },
 ];
 

@@ -4,6 +4,7 @@
           <router-link to="/" active-class="active">Home</router-link> |
           <router-link to="/reclamacao" active-class="active">Registrar Reclamação</router-link> |
           <router-link to="/sobre" active-class="active">Sobre</router-link>
+          <router-link to="/via-cep" active-class="active">VIACEP</router-link>
       </div>
       <button @click="goHome">Ir para home</button>
       <hr>
